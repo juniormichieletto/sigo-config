@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sigo-ingress
+  namespace: sigo-ms
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /api/v1/normas
+        pathType: Prefix
+        backend:
+          service:
+            name: normas-api
+            port:
+              number: 8080
+  defaultBackend:
+    service:
+      name: normas-api
+      port:
+        number: 8080
