@@ -22,6 +22,9 @@ jobs:
     - name: Save DigitalOcean kubeconfig with short-lived credentials
       run: doctl kubernetes cluster kubeconfig save --expiry-seconds 600 sigo-tcc-k8s-cluster
 
+    - name: Apply namespaces in k8s cluster
+      run: kubectl apply -f ./namespaces.yml
+
     - name: Apply postgres config in k8s cluster
       run: kubectl apply -f ./postgres-config-secret.yml
 
