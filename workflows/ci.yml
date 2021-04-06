@@ -21,10 +21,10 @@ jobs:
       run: doctl kubernetes cluster kubeconfig save --expiry-seconds 600 sigo-tcc-k8s-cluster
 
     - name: Apply postgres config in k8s cluster
-      run: kubectl apply -f ./postgres-config-secret.yml
+      run: kubectl apply -f postgres-config-secret.yml
 
     - name: Apply postgres deployment in k8s cluster
-      run: kubectl apply -f ./postgres-deployment.yml
+      run: kubectl apply -f postgres-deployment.yml
 
     - name: Apply ingress in k8s cluster
-      run: kubectl apply -f ./ingress.yml
+      run: kubectl apply -f ingress.yml
